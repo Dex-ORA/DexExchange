@@ -63,9 +63,9 @@ export const Intro = () => {
                     >
                         <Link
                             to="/trade/BTC"
-                            className="btn-3d inline-flex px-8 py-3.5 bg-white text-black text-[20px] rounded-full font-semibold hover:bg-gray-100 transition-all"
+                            className="btn-3d inline-flex px-8 py-3.5 bg-gradient-to-r from-[#D4A843] to-[#B8862D] text-black text-[20px] rounded-full font-semibold hover:opacity-90 transition-all shadow-lg shadow-[#D4A843]/20"
                         >
-                            Launch App
+                            Trade on Dexora
                         </Link>
                     </motion.div>
                 </motion.div>
