@@ -282,7 +282,7 @@ export const OrderBook = ({
 };
 
 export const AbcDexLoader = () => {
-    const brand = "A B C";
+    const brand = "DEXORA";
     const status = "SYNCING....";
 
     return (
@@ -302,7 +302,7 @@ export const AbcDexLoader = () => {
 
                 {/* glow layer */}
                 <span className="absolute inset-0 blur-lg opacity-40 text-[#2BC287] pointer-events-none">
-                    ABC DEX
+                    Dexora
                 </span>
             </div>
 

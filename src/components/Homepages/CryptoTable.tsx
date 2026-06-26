@@ -24,7 +24,7 @@ export default function CryptoTable() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </p>
 
-            <button className="mt-6 text-purple-400 hover:text-purple-300">
+            <button className="mt-6 text-[#D4A843] hover:text-[#E8C260]">
                 Learn More →
             </button>
 
@@ -47,13 +47,13 @@ function Row({ item, decimal }: { item: any, decimal: number }) {
             <div className="flex items-center gap-3">
                 <div><img src={`/images/coins/${item.vendors_vendorshortcode.toLowerCase()}.png`} alt="" className="w-7 h-7" /></div>
                 <span className="text-white ">{item.vendors_vendorname}</span>
-                <span className="text-purple-400 font-semibold sm:hidden">
+                <span className="text-[#D4A843] font-semibold sm:hidden">
                     ({item.vendors_vendorshortcode})
                 </span>
             </div>
 
             {/* Symbol */}
-            <div className="hidden sm:flex text-purple-400 font-semibold">
+            <div className="hidden sm:flex text-[#D4A843] font-semibold">
                 {item.vendors_vendorshortcode}
             </div>
 
@@ -74,7 +74,7 @@ function Row({ item, decimal }: { item: any, decimal: number }) {
             </div>
 
             {/* Trade */}
-            <Link to={`/trade/${item.vendors_vendorshortcode}`} className="text-white hover:text-purple-400 flex gap-2 items-center justify-start sm:justify-end">
+            <Link to={`/trade/${item.vendors_vendorshortcode}`} className="text-white hover:text-[#D4A843] flex gap-2 items-center justify-start sm:justify-end">
                 Trade Now <BsArrowRight />
             </Link>
         </div>

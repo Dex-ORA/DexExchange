@@ -4,7 +4,7 @@ export const WhyChooseABCDex = () => {
         <section className="xl:py-24 pt-10 pb-20">
             <div className="site-width-sm">
                 <div className="max-w-248 mx-auto">
-                    <h3 className="h2-tag text-center mb-10">Why Traders Choose ABCDEX</h3>
+                    <h3 className="h2-tag text-center mb-10">Why Traders Choose Dexora</h3>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 relative">
                         {whyabc.map((item) => {
                             return (

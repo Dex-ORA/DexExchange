@@ -35,7 +35,7 @@ export const createSubaccountAndApproveAgent = async ({
         const message = {
             hyperliquidChain: "Mainnet",
             agentAddress: agentWalletAddress,
-            agentName: "ABC Dex Agent",
+            agentName: "Dexora Agent",
             nonce: nonce
         };
         // 2. THE DOMAIN
@@ -72,7 +72,7 @@ export const createSubaccountAndApproveAgent = async ({
                 hyperliquidChain: "Mainnet",
                 signatureChainId: "0xa4b1",
                 agentAddress: agentWalletAddress,
-                agentName: "ABC Dex Agent",
+                agentName: "Dexora Agent",
                 nonce: nonce
             },
             nonce: nonce,
@@ -90,7 +90,18 @@ export const createSubaccountAndApproveAgent = async ({
             body: JSON.stringify(approvalPayload),
         });
         const result = await response.json();
-        return result;
+        if (result?.status !== 'ok') {
+            console.error('Agent approval API error:', result);
+            toast.error(`Agent approval failed: ${result?.response || JSON.stringify(result)}`);
+            return false;
+        }
+        // Verify the agent was actually registered
+        const verifyAgents = await getUserAgents(userAddress ?? '', agentWalletAddress ?? '');
+        if (verifyAgents.length === 0) {
+            toast.error('Agent approval succeeded but agent not found. Please retry.');
+            return false;
+        }
+        return true;
 
     } catch (error) {
         console.error('Agent approval failed:', error);

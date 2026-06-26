@@ -21,8 +21,8 @@ const Advantages = () => {
         <section className="py-24 relative overflow-hidden bg-black/40">
             {/* Background decorative elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#2BC287]/10 blur-[120px]" />
-                <div className="absolute bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-[#8B5CF6]/10 blur-[120px]" />
+                <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#D4A843]/10 blur-[120px]" />
+                <div className="absolute bottom-[10%] -right-[10%] w-[40%] h-[40%] rounded-full bg-[#C8962A]/10 blur-[120px]" />
             </div>
 
             <div className="site-width relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +32,7 @@ const Advantages = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="inline-block px-4 py-1.5 rounded-full border border-[#2BC287]/30 bg-[#2BC287]/5 text-[#2BC287] text-sm font-medium mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(43,194,135,0.15)]"
+                        className="inline-block px-4 py-1.5 rounded-full border border-[#D4A843]/30 bg-[#D4A843]/5 text-[#D4A843] text-sm font-medium mb-6 backdrop-blur-md shadow-[0_0_15px_rgba(212,168,67,0.15)]"
                     >
                         Next-Gen Infrastructure
                     </motion.div>
@@ -43,7 +43,7 @@ const Advantages = () => {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-white"
                     >
-                        Engineered for the <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#2BC287] to-cyan-400">Apex Trader</span>
+                        Engineered for the <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#D4A843] to-[#E8C260]">Apex Trader</span>
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -102,19 +102,19 @@ const features = [
         title: "Zero Gas Architecture",
         description: "Trade directly on our optimized application-specific chain. Never pay gas fees again while enjoying instant trade finality.",
         icon: Zap,
-        color: "from-[#2BC287] to-teal-600",
+        color: "from-[#D4A843] to-[#C8962A]",
     },
     {
         title: "Omnichain Liquidity",
         description: "Access seamless, unified liquidity across major ecosystems without fragmentation. Bridging happens instantly in the background.",
         icon: Globe,
-        color: "from-purple-500 to-indigo-600",
+        color: "from-[#D4A843] to-[#C8962A]",
     },
     {
         title: "Pro-Level Tooling",
         description: "Leverage advanced order types, real-time depth charts, trailing stops, and a fully robust REST/WebSocket API for algorithmic trading.",
         icon: Cpu,
-        color: "from-cyan-400 to-blue-600",
+        color: "from-[#E8C260] to-[#C8962A]",
     },
 ];
 

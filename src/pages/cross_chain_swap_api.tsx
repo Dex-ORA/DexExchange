@@ -225,7 +225,7 @@ export default function CrossChainSwapAPI() {
       toAmount: "10020220000",
       slippage: '0.03',
       order: 'CHEAPEST',
-      // referrer: 'ABCDEX'
+      // referrer: 'Dexora'
     });
     // console.log(`${LIFI_API}/quote/toAmount?${params}`);
     const response = await fetch(`${LIFI_API}/quote/toAmount?${params}`, {
@@ -469,7 +469,7 @@ export default function CrossChainSwapAPI() {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
+    <div className="min-h-screen bg-linear-to-br from-slate-900 via-[#3A2E1A] to-slate-900 p-4">
       <div className="max-w-2xl mx-auto pt-12">
         {/* Header */}
         <div className="text-center mb-8">
@@ -477,7 +477,7 @@ export default function CrossChainSwapAPI() {
             <DollarSign className="text-green-400" size={32} />
             <h1 className="text-4xl font-bold text-white">Bridge to USDC</h1>
           </div>
-          <p className="text-purple-300">Convert any asset to USDC on Arbitrum • Auto-deposit to Hyperliquid</p>
+          <p className="text-[#E8C260]">Convert any asset to USDC on Arbitrum • Auto-deposit to Hyperliquid</p>
         </div>
 
         {/* Main Card */}
@@ -486,7 +486,7 @@ export default function CrossChainSwapAPI() {
           {!isConnected ? (
             <button
               onClick={connectWallet}
-              className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl font-semibold hover:from-purple-700 hover:to-pink-700 transition-all flex items-center justify-center gap-2"
+              className="w-full bg-linear-to-r from-[#D4A843] to-[#C8962A] text-white py-4 rounded-xl font-semibold hover:from-[#C8962A] hover:to-[#B8861A] transition-all flex items-center justify-center gap-2"
             >
               <Wallet size={20} />
               Connect Wallet
@@ -504,7 +504,7 @@ export default function CrossChainSwapAPI() {
                 <select
                   value={selectedBridge}
                   onChange={(e) => setSelectedBridge(e.target.value)}
-                  className="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:border-purple-500 focus:outline-none"
+                  className="w-full bg-white/5 text-white px-4 py-3 rounded-xl border border-white/10 focus:border-[#D4A843] focus:outline-none"
                 >
                   <option value="stargate">Stargate Finance (LayerZero)</option>
                   <option value="across">Across Protocol (Fastest)</option>
@@ -523,7 +523,7 @@ export default function CrossChainSwapAPI() {
                       key={chain}
                       onClick={() => setSourceChain(chain)}
                       className={`py-3 rounded-xl font-medium transition-all ${sourceChain === chain
-                        ? 'bg-purple-600 text-white'
+                        ? 'bg-[#D4A843] text-white'
                         : 'bg-white/5 text-white/60 hover:bg-white/10'
                         }`}
                     >
@@ -540,7 +540,7 @@ export default function CrossChainSwapAPI() {
                   <button
                     onClick={() => setSourceToken('native')}
                     className={`py-3 rounded-xl font-medium transition-all ${sourceToken === 'native'
-                      ? 'bg-purple-600 text-white'
+                      ? 'bg-[#D4A843] text-white'
                       : 'bg-white/5 text-white/60 hover:bg-white/10'
                       }`}
                   >
@@ -568,7 +568,7 @@ export default function CrossChainSwapAPI() {
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="0.0"
-                    className="w-full bg-white/5 text-white text-2xl px-4 py-4 rounded-xl border border-white/10 focus:border-purple-500 focus:outline-none"
+                    className="w-full bg-white/5 text-white text-2xl px-4 py-4 rounded-xl border border-white/10 focus:border-[#D4A843] focus:outline-none"
                   />
                   <span className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 font-medium">
                     {getSourceTokenSymbol()}
@@ -701,7 +701,7 @@ export default function CrossChainSwapAPI() {
                 href={HYPERLIQUID_REFERRAL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 block text-center text-purple-300 hover:text-purple-200 text-sm underline"
+                className="mt-6 block text-center text-[#E8C260] hover:text-[#F0D070] text-sm underline"
               >
                 Open Hyperliquid Dashboard →
               </a>
@@ -729,7 +729,7 @@ export default function CrossChainSwapAPI() {
               <p>• USDC Address: <code className="text-xs">{TOKENS.arbitrum.usdc.address}</code></p>
             </div>
             <div className="bg-black/30 p-3 rounded-lg">
-              <p className="font-semibold text-purple-300 mb-1">🔄 Supported Sources:</p>
+              <p className="font-semibold text-[#E8C260] mb-1">🔄 Supported Sources:</p>
               <p>• ETH, USDC on Ethereum</p>
               <p>• BNB, USDC on BSC</p>
               <p>• All routes convert to USDC on Arbitrum</p>

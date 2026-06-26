@@ -14,11 +14,11 @@ export default function PrivacyPolicy() {
           <Section title="1. Introduction">
 
             <p>
-              Welcome to ABCDEX ("we," "us," or "our"). We respect your privacy and are committed to protecting the personal information you share with us or that we collect. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you access or use our website (https://www.google.com/search?q=abcdex.com), interface, and decentralized services (collectively, the "Services"). </p>
+              Welcome to Dexora ("we," "us," or "our"). We respect your privacy and are committed to protecting the personal information you share with us or that we collect. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you access or use our website (https://www.google.com/search?q=abcdex.com), interface, and decentralized services (collectively, the "Services"). </p>
 
             <h3 className="font-bold mt-5 text-xl">a. A Key Note on Decentralization: </h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li>ABCDEX operates as a non-custodial, decentralized exchange interface. Unlike centralized exchanges, we do not collect your name, physical address, phone number, or passport details (KYC data) to grant you access to the Services. You interact with smart contracts directly via your own non-custodial blockchain wallet. </li>
+              <li>Dexora operates as a non-custodial, decentralized exchange interface. Unlike centralized exchanges, we do not collect your name, physical address, phone number, or passport details (KYC data) to grant you access to the Services. You interact with smart contracts directly via your own non-custodial blockchain wallet. </li>
               <li>By using the Services, you consent to the data practices described in this policy. If you do not agree with the terms of this Privacy Policy, please do not access the Services. </li>
             </ul>
           </Section>
@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
             <ul className="list-disc pl-6 space-y-2">
               <li>When you access our interface, certain technical information is automatically collected: </li>
               <li>By using the Services, you consent to the data practices described in this policy. If you do not agree with the terms of this Privacy Policy, please do not access the Services. </li>
-              <li> Public Blockchain Data: When you connect your wallet to ABCDEX, we collect your public wallet address and details of your transactions performed through our smart contracts. Please note: Transactions executed on a blockchain are public, immutable, and permanent. We have no control over this publicly available information.</li>
+              <li> Public Blockchain Data: When you connect your wallet to Dexora, we collect your public wallet address and details of your transactions performed through our smart contracts. Please note: Transactions executed on a blockchain are public, immutable, and permanent. We have no control over this publicly available information.</li>
 
               <li> Device and Usage Data: We may collect information about the device you use to access the Services, such as your IP address, browser type, operating system, access times, and the pages you viewed directly before and after accessing the Services. This data helps us optimize our interface and ensure security.</li>
 
@@ -90,7 +90,7 @@ export default function PrivacyPolicy() {
         </div>
 
       </section>
-      <StartEarning btnText="Connect Wallet" title=" Start Trading on ABCDEX" content="Your capital. Your wallet. Your rules. " className="py-16" />
+      <StartEarning btnText="Connect Wallet" title=" Start Trading on Dexora" content="Your capital. Your wallet. Your rules. " className="py-16" />
     </>
   );
 }

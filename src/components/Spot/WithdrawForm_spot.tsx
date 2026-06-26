@@ -145,7 +145,7 @@ export default function WithdrawPopupForm_spot({ withdrawPopup, setWithdrawPopup
                         <div>
                             <button
                                 type="submit"
-                                className={`w-full py-2 rounded bg-linear-to-r from-cyan-500 to-purple-600 hover:opacity-90 disabled:opacity-60`}
+                                className={`w-full py-2 rounded bg-linear-to-r from-[#D4A843] to-[#C8962A] hover:opacity-90 disabled:opacity-60`}
                             >
                                 Submit
                             </button>

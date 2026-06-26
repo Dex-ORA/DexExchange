@@ -9,8 +9,8 @@ type SEOProps = {
 };
 
 export default function SEO({
-  title = "ABC DEX – Trade Crypto with Lowest Fees",
-  description = "Trade crypto instantly on ABC DEX with deep liquidity, low fees, and real-time charts.",
+  title = "Dexora – Trade Crypto with Lowest Fees",
+  description = "Trade crypto instantly on Dexora with deep liquidity, low fees, and real-time charts.",
   image = "https://abc-dex.vercel.app/og-image.png",
   url = "https://abc-dex.vercel.app",
 }: SEOProps) {

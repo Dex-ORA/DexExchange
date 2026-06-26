@@ -39,9 +39,9 @@ export default function Trade() {
     }, [trading.isConfirm]);
     const mode = trading.spotMode === "spot" ? "Spot" : "Perps";
     const priceForSeo = trading.marketData?.price;
-    const title = `${trading.market}  ${trading.vendor ? `| ${trading.vendor}` : ""} | ${mode} | ${priceForSeo > 0 ? `$${priceForSeo.toFixed(2)}` : 0} | ABC DEX`;
+    const title = `${trading.market}  ${trading.vendor ? `| ${trading.vendor}` : ""} | ${mode} | ${priceForSeo > 0 ? `$${priceForSeo.toFixed(2)}` : 0} | Dexora`;
 
-    const description = `Trade ${trading.market} ${trading.vendor} ${mode} on ABC DEX with real-time charts, deep liquidity, and low fees.`;
+    const description = `Trade ${trading.market} ${trading.vendor} ${mode} on Dexora with real-time charts, deep liquidity, and low fees.`;
 
     const url = `https://abc-dex.vercel.app/trade/${trading.market}/${trading.vendor}`;
     return (
@@ -51,7 +51,7 @@ export default function Trade() {
                 description={description}
                 url={url}
             />}
-            <div className="mt-5 text-sm p-2 pb-1">
+            <div className="pt-[68px] text-sm p-2 pb-1">
                 {trading.errors.length > 0 && (
                     <div className="fixed top-4 right-4 z-50 space-y-2">
                         {trading.errors.map(err => (

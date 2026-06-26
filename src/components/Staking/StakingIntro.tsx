@@ -8,7 +8,7 @@ export default function StakingIntro() {
                     Stake & Earn – Own a Share of the Protocol’s Success
                 </h1>
                 <p className="text-center max-w-[1080px] mx-auto mt-4 p-tag">
-                    Lock in your $ABCD tokens and earn real yield generated directly from ABCDEX’s trading activity. Staking gives you passive income, long-term alignment with the protocol, and a meaningful voice in the platform’s governance.
+                    Lock in your $DEXO tokens and earn real yield generated directly from Dexora’s trading activity. Staking gives you passive income, long-term alignment with the protocol, and a meaningful voice in the platform’s governance.
                 </p>
                 <StakeStats />
             </div>

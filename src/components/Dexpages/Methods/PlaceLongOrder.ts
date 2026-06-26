@@ -54,8 +54,18 @@ export const handlePlaceLongOrder = async ({ payload, isLoading, confirmResolver
     if (!privyWallet || existingAgents.length === 0) {
         const success = await createSubaccountAndApproveAgent({ wallets, createWallet });
         if (!success) {
-            toast.error("Failed to authorize Agent wallet.");
-            throw new Error("Agent authorization failed");
+            toast.error("Failed to authorize Agent wallet. Please try again.");
+            setLoading(false);
+            setIsConfirm(false);
+            return;
+        }
+        // Re-fetch the privy wallet reference after potential creation
+        const updatedPrivyWallet = wallets.find((w: any) => w.walletClientType === 'privy');
+        if (!updatedPrivyWallet) {
+            toast.error("Embedded wallet not found after agent setup. Please reconnect.");
+            setLoading(false);
+            setIsConfirm(false);
+            return;
         }
     }
     try {

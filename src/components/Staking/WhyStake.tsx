@@ -16,10 +16,10 @@ export default function WhyStake() {
         },
         {
             title: "Governance Rights ",
-            desc: "Stakers become active participants in the future of ABCDEX. ",
+            desc: "Stakers become active participants in the future of Dexora. ",
             points: [
                 "Vote on Key Proposals: Listings, fee structures, risk parameters, treasury management, DAO upgrades. ",
-                "Shape the Protocol: Your stake literally defines the direction of ABCDEX. "
+                "Shape the Protocol: Your stake literally defines the direction of Dexora. "
             ],
         },
         {
@@ -61,10 +61,10 @@ export default function WhyStake() {
         <section className="w-full 2xl:py-32 py-24 bg-[#0d0d0d] text-white overflow-hidden">
             <div className="site-width-sm mx-auto px-6">
                 <h1 className="h2-tag font-bold mb-4 text-center">
-                    Why Stake on ABCDEX?
+                    Why Stake on Dexora?
                 </h1>
                 <p className="text-gray-400 max-w-2xl p-tag mx-auto mb-10 text-center">
-                    ABCDEX is shifting away from unsustainable token emissions. Instead of inflationary rewards, stakers earn real yield,
+                    Dexora is shifting away from unsustainable token emissions. Instead of inflationary rewards, stakers earn real yield,
                     backed by actual economic activity across swaps, perps, liquidations, and protocol fees.
                 </p>
                 <div className="flex justify-center gap-4 mb-6">

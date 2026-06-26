@@ -7,7 +7,7 @@ export const RefIntroduction = () => {
         <section className="xl:py-24 pt-18 pb-6">
             <div className="site-width-sm">
                 <h2 className="h2-tag md:text-4xl font-bold text-white max-w-[900px] mx-auto text-center">Refer & Earn – Turn Your Network into On-Chain Income</h2>
-                <p className="p-tag mt-4 text-center">Grow the ABCDEX community while unlocking lifetime earning potential. Share your unique referral link, help your friends trade smarter with discounted fees, and earn real commissions every time they make a trade.  </p>
+                <p className="p-tag mt-4 text-center">Grow the Dexora community while unlocking lifetime earning potential. Share your unique referral link, help your friends trade smarter with discounted fees, and earn real commissions every time they make a trade.  </p>
                 <div className="text-center w-[245px] mx-auto mt-8">
                     <button className="text-xl flex items-center gap-1 border border-[#37373C] px-4 py-3 rounded-2xl justify-center">View referral rules <FiArrowUpRight className="text-xl" /></button>
                 </div>
@@ -117,7 +117,7 @@ function ReferralPage() {
 
                     <li>
                         <span className="font-bold text-white">No Spam:</span>{" "}
-                        Do not post referral links in official ABCDEX community channels.
+                        Do not post referral links in official Dexora community channels.
                     </li>
 
                     <li>

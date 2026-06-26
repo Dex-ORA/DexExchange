@@ -213,8 +213,7 @@ export const useAuthAddress = () => {
                 }
             } catch (e) {
                 console.error("Failed to enable DEX abstraction (user rejected or error):", e);
-                // Mark as processed to prevent retry loop
-                localStorage.setItem(processedKey, 'true');
+                // Do NOT mark as processed on failure — allow retry on next session
             }
         };
         callDex();

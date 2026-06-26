@@ -22,7 +22,7 @@ export class SimpleDatafeed {
         setTimeout(() => onSymbolResolved({
             name: symbolName,
             ticker: symbolName,
-            description: `${this.fsym}/${this.tsym} on ABC Dex`,
+            description: `${this.fsym}/${this.tsym} on Dexora`,
             type: "crypto",
             session: "24x7",
             timezone: "Etc/UTC",

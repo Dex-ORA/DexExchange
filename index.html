@@ -3,16 +3,16 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/abc-logo.png" />
+  <link rel="icon" type="image/png" href="/images/dexo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trade Crypto Perpetuals | ABC DEX</title>
-  <meta name="description" content="Trade crypto perpetuals on ABC DEX with deep liquidity and low fees." />
+  <title>Dexora | Decentralized Exchange</title>
+  <meta name="description" content="Trade crypto on Dexora with deep liquidity and low fees. Swap, bridge, and trade with confidence." />
 
-  <meta property="og:title" content="ABC DEX – Crypto Trading" />
-  <meta property="og:description" content="Trade crypto with low fees" />
-  <meta property="og:url" content="https://abcdex.exchange" />
+  <meta property="og:title" content="Dexora – Decentralized Exchange" />
+  <meta property="og:description" content="Trade crypto with low fees on Dexora" />
+  <meta property="og:url" content="https://dexora.exchange" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://abcdex.exchange/abc-logo.png" />
+  <meta property="og:image" content="https://dexora.exchange/images/Dexora.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="manifest" href="/manifest.json" />
@@ -20,9 +20,22 @@
 </head>
 
 <body>
+  <!-- Hidden Google Translate widget -->
+  <div id="google_translate_element" style="position:absolute;top:0;left:0;opacity:0;pointer-events:none;height:0;overflow:hidden;z-index:-1;"></div>
+
   <div id="root"></div>
   <script src="/static/charting_library/charting_library.js"></script>
   <script type="module" src="/src/main.tsx"></script>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: 'en', autoDisplay: false },
+        'google_translate_element'
+      );
+    }
+  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 
 </html>

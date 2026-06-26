@@ -6,7 +6,7 @@ export default function HowToEarn() {
         <section className="2xl:py-36 py-24 mt-12  bg-[#1F1F25]">
             <div className="site-width-sm">
                 <h2 className="h2-tag font-bold text-white text-center">How to Earn Points </h2>
-                <p className="max-w-7xl mx-auto mt-3 p-tag text-center">ABCDEX rewards actions that generate real economic value and deepen the network’s liquidity. The more you contribute, the higher you score, and the more future governance weight you secure.  </p>
+                <p className="max-w-7xl mx-auto mt-3 p-tag text-center">Dexora rewards actions that generate real economic value and deepen the network’s liquidity. The more you contribute, the higher you score, and the more future governance weight you secure.  </p>
                 <div className="border-2 border-[#3A3A46] p-8 mt-24 max-w-3xl mx-auto relative">
                     <FiveStepTabs />
                 </div>

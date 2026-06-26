@@ -15,7 +15,7 @@ export const GetStarted = () => {
                                     <img src={item.image} alt={item.title} className="w-24 mx-auto" />
                                     <h4 className="h3-tag ">{item.title}</h4>
                                     <p className="text-[#898CA9] text-[18px]">{item.content}</p>
-                                    <button className="text-[#B982FF] ">Get Started</button>
+                                    <button className="text-[#D4A843] ">Get Started</button>
                                 </div>
                             </li>
                         )

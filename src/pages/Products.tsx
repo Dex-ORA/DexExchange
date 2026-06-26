@@ -9,7 +9,7 @@ export const Products = () => {
             <ProductIntro />
             <StakeTabs />
             <WhyChooseABCDex />
-            <StartEarning btnText="Connect Wallet" title=" Start Trading on ABCDEX" content="Your capital. Your wallet. Your rules. " className="" />
+            <StartEarning btnText="Connect Wallet" title=" Start Trading on Dexora" content="Your capital. Your wallet. Your rules. " className="" />
         </section>
     )
 }

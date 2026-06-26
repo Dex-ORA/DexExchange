@@ -4,11 +4,11 @@ export const socketUrl = "wss://api.hyperliquid.xyz/ws";
 export const baseUrl = 'https://api.hyperliquid.xyz';
 export const infoUrl = `${baseUrl}/info`;
 export const exchangeUrl = `${baseUrl}/exchange`;
-export const integrationKey = 'ABCDEx';
+export const integrationKey = 'Dexora';
 export const Lifi_APIKey = 'a56f0773-fe37-4260-92a9-aa03d95e24c5.ef3b7956-9667-46f5-98a8-d7658f9c0d58';
 
 export const swapOptions = {
-    integrator: 'ABCDEx',
+    integrator: 'Dexora',
     order: 'RECOMMENDED',
     // fee: 0.01,
     maxPriceImpact: 0.05,

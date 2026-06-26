@@ -5,10 +5,10 @@ export default function AirdroIntro() {
         <section className="text-center py-24 relative">
             <div className="site-width-sm">
                 <h1 className="h2-tag md:text-4xl font-bold text-white max-w-[900px] mx-auto">
-                    Claim. Earn. Rise in Rank. Build Your Share of ABCDEX
+                    Claim. Earn. Rise in Rank. Build Your Share of Dexora
                 </h1>
                 <p className=" max-w-[1080px] mx-auto mt-4 p-tag">
-                    ABCDEX rewards the traders, LPs, stakers, and referrers who fuel the network. Every action that strengthens the ecosystem earns you points — and those points help determine your future share of governance power through the potential distribution of the $ABCD token. 
+                    Dexora rewards the traders, LPs, stakers, and referrers who fuel the network. Every action that strengthens the ecosystem earns you points — and those points help determine your future share of governance power through the potential distribution of the $DEXO token. 
                 </p>
                 <p className=" max-w-[1080px] mx-auto mt-12 mb-24 p-tag">This is your pathway to becoming an early owner of the protocol.</p>
                 <StatsSection />

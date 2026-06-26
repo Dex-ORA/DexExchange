@@ -221,7 +221,7 @@ export default function StakeStats() {
                 toast.error(`Deposit amount should be greater than previous deposit amount.  you can deposit ${ethers.formatUnits(userinfo[5], currencyinfo.decimals)} ${currencyinfo.shortcode} or more.`);
                 return;
             }
-            // console.log(`Depositing ${amt} ${currencyinfo.shortcode} to ABC Dex...`);
+            // console.log(`Depositing ${amt} ${currencyinfo.shortcode} to Dexora...`);
             // Check current allowance
             const currentAllowance = await usdcContract.allowance(address, STAKING_BRIDGE_ADDRESS);
             // Step 1: Approve bridge if needed

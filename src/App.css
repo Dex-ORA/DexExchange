@@ -7,7 +7,7 @@ html,
 body {
   background-color: #0b0b0f;
   color: #fff;
-  padding-top: 8px;
+  padding-top: 0;
   padding-bottom: 0;
   font-family: "DM Sans", sans-serif;
   font-size: 16px;
@@ -16,6 +16,16 @@ body {
 
 button {
   cursor: pointer;
+}
+
+/* Hide Google Translate default bar */
+.goog-te-banner-frame,
+.skiptranslate,
+#goog-gt-tt {
+  display: none !important;
+}
+body {
+  top: 0 !important;
 }
 
 /* hide arrows in number input */
@@ -114,4 +124,74 @@ th {
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; }
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #D4A843, #C8962A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Animated Shimmer Gradient Text ─── */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    #D4A843 0%,
+    #E8C260 25%,
+    #D4A843 50%,
+    #C8962A 75%,
+    #D4A843 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── 3D Text Shadow ─── */
+.text-3d {
+  text-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ─── 3D Button Effects ─── */
+.btn-3d {
+  position: relative;
+  transform: translateY(0);
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.15s ease;
+}
+.btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 0 rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-3d:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.3),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── 3D Glow Ring ─── */
+@keyframes glow-ring {
+  0%, 100% { box-shadow: 0 0 15px rgba(212, 168, 67, 0.2), 0 0 30px rgba(212, 168, 67, 0.1); }
+  50% { box-shadow: 0 0 25px rgba(212, 168, 67, 0.4), 0 0 50px rgba(212, 168, 67, 0.2); }
+}
+
+.animate-glow-ring {
+  animation: glow-ring 3s ease-in-out infinite;
 }

@@ -4,7 +4,7 @@ export const WhyAirdrop = () => {
     return (
         <section className="2xl:py-36 py-24">
             <div className="site-width-sm">
-                <h2 className="h2-tag font-bold text-white text-center max-w-225 mx-auto">Why Traders Love the ABCDEX Airdrop Program </h2>
+                <h2 className="h2-tag font-bold text-white text-center max-w-225 mx-auto">Why Traders Love the Dexora Airdrop Program </h2>
                 <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-3 mt-12">
                     {data.map((item, index) => {
                         return (

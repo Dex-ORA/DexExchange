@@ -25,7 +25,7 @@ export function GradientSparkline({
       <svg width="0" height="0">
         <defs>
           <linearGradient id={id} x1="0" x2="1">
-            <stop offset="100%" stopColor={positive ? "#2BC287" : "#F74B60"} />
+            <stop offset="100%" stopColor={positive ? "#D4A843" : "#F74B60"} />
             <stop offset="0%" stopColor={positive ? "#000" : "#000"} />
           </linearGradient>
         </defs>

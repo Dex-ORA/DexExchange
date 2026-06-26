@@ -243,7 +243,7 @@ const TransactionCompletedModal: React.FC<TransactionCompletedModalProps> = ({
                         <button
                             onClick={handleClose}
                             className={`flex-1 font-semibold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl ${isSuccess
-                                ? 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                                ? 'bg-[#D4A843] hover:bg-[#C8962A] text-white'
                                 : 'bg-red-600 hover:bg-red-700 text-white'
                                 }`}
                         >

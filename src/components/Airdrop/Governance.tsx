@@ -6,13 +6,13 @@ export default function Governance() {
                     The Journey to Decentralized Governance Starts Here 
                 </h2>
                 <p className="max-w-7xl mx-auto mt-3 p-tag">
-                    ABCDEX believes that the people who trade, build, provide liquidity, and grow the ecosystem should ultimately own it. The ABCDEX Points Program is engineered for long-term alignment between users and the protocol.  
+                    Dexora believes that the people who trade, build, provide liquidity, and grow the ecosystem should ultimately own it. The Dexora Points Program is engineered for long-term alignment between users and the protocol.  
                 </p>
                 <p className="max-w-7xl mx-auto mt-3 p-tag">
                     Earn points today. Secure your position in future governance. 
                 </p>
                 <p className="max-w-7xl mx-auto mt-3 p-tag">
-                    Your activity now directly influences your weight in potential future distributions of the $ABCD token. 
+                    Your activity now directly influences your weight in potential future distributions of the $DEXO token. 
                 </p>
             </div>
             <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 -right-120 w-96 h-96 

@@ -194,7 +194,7 @@ export default function ContactForm() {
                 </form>
 
             </div>
-            <StartEarning btnText="Connect Wallet" title=" Start Trading on ABCDEX" content="Your capital. Your wallet. Your rules. " className="" />
+            <StartEarning btnText="Connect Wallet" title=" Start Trading on Dexora" content="Your capital. Your wallet. Your rules. " className="" />
         </section>
     );
 }
@@ -212,7 +212,7 @@ function ContactIntro() {
 
                         <p className="mt-4 p-tag">
                             We're here to help you trade. Have a question about the platform, interested in a partnership,
-                            or want to join our community? Find the right channel below to connect with the ABCDEX team.
+                            or want to join our community? Find the right channel below to connect with the Dexora team.
                         </p>
                     </div>
                     <div className="flex items-center gap-5 text-white text-xl justify-end">
