@@ -8,13 +8,13 @@ import { DepositBtn } from "../components/Dexpages/DepositBtn";
 import { formatWalletAddress } from "../utils";
 
 const navLinks = [
-    { name: "About", path: "/about", status: "live" },
-    { name: "Staking", path: "https://www.dexora.live/dashboard", status: "live", external: true },
-    { name: "Ecosystem", path: "https://www.dexora.live/", status: "live", external: true },
+    { name: "Trade", path: "/trade/BTC", status: "live" },
+   { name: "Portfolio", path: "/portfolio", status: "live" },
+    { name: "DEX", path: "https://dex.dexora.live/", status: "live", external: true },
+    // { name: "Bridge", path: "https://dex.dexora.live/bridge", status: "live", external: true },
+ { name: "About", path: "/about", status: "live" },
     { name: "FAQ", path: "/faq", status: "live" },
-    { name: "Dexora Exchange", path: "/trade/BTC", status: "live" },
-    { name: "Dexora DEX", path: "https://dex.dexora.live/", status: "live", external: true },
-    { name: "Bridge", path: "https://dex.dexora.live/bridge", status: "live", external: true },
+    
 ];
 
 const LANGUAGES = [
@@ -129,18 +129,18 @@ const Navbar = () => {
                                         href={link.path}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="px-3 2xl:px-4 py-1.5 text-sm text-gray-400 hover:text-[#D4A843] transition-colors whitespace-nowrap notranslate"
+                                        className="px-3 2xl:px-4 py-1.5 text-sm text-white hover:text-[#D4A843] transition-colors whitespace-nowrap notranslate"
                                     >
-                                        {link.name}
+                                     <b>   {link.name}</b>
                                     </a>
                                 ) : (
                                     <Link
                                         to={link.path}
                                         className={`px-3 2xl:px-4 py-1.5 text-sm hover:text-[#D4A843] transition-colors whitespace-nowrap notranslate ${
-                                            isActive(link.path) ? "text-[#D4A843]" : "text-gray-400"
+                                            isActive(link.path) ? "text-[#D4A843]" : "text-white"
                                         }`}
                                     >
-                                        {link.name}
+                                     <b>   {link.name}</b>
                                     </Link>
                                 )}
                             </motion.div>
