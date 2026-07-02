@@ -110,7 +110,7 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-2 flex-shrink-0">
                         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                            <img src="/images/Dexora.png" alt="Dexora" className="h-14 w-auto notranslate" />
+                            <img src="/images/Dexora.png" alt="Dexora" className="h-8 sm:h-14 w-auto notranslate" />
                         </motion.div>
                     </Link>
 
@@ -147,24 +147,24 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    {/* Desktop Right Actions */}
-                    <div className="flex items-center gap-2 flex-shrink-0">
+                    {/* Right Actions */}
+                    <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0 min-w-0">
                         {/* Deposit & Wallet */}
                         {address ? (
                             <>
                                 <DepositBtn />
                                 <button
                                     onClick={handleLogout}
-                                    className="bg-gradient-to-r from-[#D4A843] to-[#B8862D] text-black px-5 py-2 font-semibold rounded-full text-sm flex items-center gap-1.5 hover:opacity-90 transition-all shadow-lg shadow-[#D4A843]/20"
+                                    className="bg-gradient-to-r from-[#D4A843] to-[#B8862D] text-black p-2 sm:px-5 sm:py-2 font-semibold rounded-full text-xs sm:text-sm flex items-center gap-1 sm:gap-1.5 hover:opacity-90 transition-all shadow-lg shadow-[#D4A843]/20"
                                 >
-                                    {formatWalletAddress(address)}
-                                    <LogOut className="w-4 h-4" />
+                                    <span className="hidden sm:inline truncate">{formatWalletAddress(address)}</span>
+                                    <LogOut className="w-4 h-4 shrink-0" />
                                 </button>
                             </>
                         ) : (
                             <button
                                 onClick={login}
-                                className="bg-gradient-to-r from-[#D4A843] to-[#B8862D] text-black px-5 py-2 font-semibold rounded-full text-sm hover:opacity-90 transition-all shadow-lg shadow-[#D4A843]/20"
+                                className="bg-gradient-to-r from-[#D4A843] to-[#B8862D] text-black px-3 sm:px-5 py-1.5 sm:py-2 font-semibold rounded-full text-xs sm:text-sm hover:opacity-90 transition-all shadow-lg shadow-[#D4A843]/20 whitespace-nowrap"
                             >
                                 Connect Wallet
                             </button>
