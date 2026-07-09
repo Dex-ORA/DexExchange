@@ -118,6 +118,7 @@ export default function Trade() {
                                         selectedCoin={trading.selectedCoin}
                                         connectWallet={trading.login}
                                         placeLongOrder={placeLongOrder}
+                                        orderbook={trading.orderbook}
                                         balances={{
                                             spotEquity: trading.spotEquity,
                                             perpsEquity: trading.perpsEquity,
@@ -174,6 +175,7 @@ export default function Trade() {
                                     selectedCoin={trading.selectedCoin}
                                     connectWallet={trading.login}
                                     placeLongOrder={placeLongOrder}
+                                        orderbook={trading.orderbook}
                                     balances={{
                                         spotEquity: trading.spotEquity,
                                         perpsEquity: trading.perpsEquity,
@@ -351,6 +353,7 @@ export default function Trade() {
                                 selectedCoin={trading.selectedCoin}
                                 connectWallet={trading.login}
                                 placeLongOrder={placeLongOrder}
+                                        orderbook={trading.orderbook}
                                 balances={{
                                     spotEquity: trading.spotEquity,
                                     perpsEquity: trading.perpsEquity,

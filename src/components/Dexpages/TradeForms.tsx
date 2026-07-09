@@ -41,7 +41,8 @@ export default function TradingForm({
     connectWallet,
     placeLongOrder,
     balances,
-    options
+    options,
+    orderbook
 }: OrderFormProps) {
     const { isAuthenticated, isWalletLoading } = useAuthAddress();
     const toCurrency = options[1];
@@ -88,6 +89,15 @@ export default function TradingForm({
     const [slLoss, setSlLoss] = useState("");
     const [slLossType, setSlLossType] = useState("%");
 
+
+    const midPrice = useMemo(() => {
+        if (orderbook?.bids?.length && orderbook?.asks?.length) {
+            const bestBid = Number(orderbook.bids[0].price);
+            const bestAsk = Number(orderbook.asks[0].price);
+            if (bestBid > 0 && bestAsk > 0) return (bestBid + bestAsk) / 2;
+        }
+        return marketData?.price ?? null;
+    }, [orderbook, marketData?.price]);
 
     const isSpot = spotMode === "spot";
     const isTradePosition = !isSpot ?
@@ -211,8 +221,8 @@ export default function TradingForm({
                 ? probal * marketData.price
                 : probal;
 
-        const accountValue = isPro ? probalance : availbal;
-        const lev = isPro ? 1 : Number(leverage);
+        const accountValue = isPro ? (probalance > 0 ? probalance : availbal) : availbal;
+        const lev = isPro ? (probalance > 0 ? 1 : Number(leverage)) : Number(leverage);
 
         if (accountValue <= 0 || lev <= 0) return;
 
@@ -760,13 +770,24 @@ export default function TradingForm({
                         <div className="relative">
                             <div className="relative">
                                 <input {...numberOnly}
-                                    className={`w-full bg-[#27272A] px-3 py-2 rounded-lg text-sm focus:outline-0 ${showError("price") ? "ring-1 ring-red-500" : ""}`}
+                                    className={`w-full bg-[#27272A] px-3 py-2 pr-20 rounded-lg text-sm focus:outline-0 ${showError("price") ? "ring-1 ring-red-500" : ""}`}
                                     placeholder={"Enter Price"}
                                     value={price}
                                     onChange={(e) => { setPrice(handleDecimals(toCurrency, e.target.value)); setTouched((p) => ({ ...p, price: true })) }}
                                     onBlur={() => setTouched((p) => ({ ...p, price: true }))}
                                 />
-                                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-300">{toCurrency}</span>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        if (midPrice) {
+                                            setPrice(handleDecimals(toCurrency, String(midPrice)));
+                                            setTouched((p) => ({ ...p, price: true }));
+                                        }
+                                    }}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 px-1.5 py-0.5 text-[11px] font-medium text-[#2BC287] hover:text-[#34d996] cursor-pointer transition-colors"
+                                >
+                                    Mid
+                                </button>
                             </div>
                             {showError("price") && <p className="text-red-500 relative -top-0.5 text-xs mt-1">{errors.price}</p>}
                         </div>
@@ -951,6 +972,7 @@ export type OrderFormProps = {
     setLeverage: (leverage: string) => void;
     connectWallet: () => void;
     placeLongOrder?: (payload: any) => void;
+    orderbook?: { bids: { price: number | string; size: number | string }[]; asks: { price: number | string; size: number | string }[] };
     changeLeverage?: (payload: any) => void;
     updateTradeMode?: (payload: any) => void;
     tradeMode?: string;

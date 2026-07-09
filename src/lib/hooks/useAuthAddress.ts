@@ -192,20 +192,28 @@ export const useAuthAddress = () => {
 
     // Effect: enable DEX abstraction once per address and persist status
 
+    const dexCheckRef = useRef<string | null>(null);
+
     useEffect(() => {
         if (!address) return;
+        // Skip if already processing or processed this address in this session
+        if (dexCheckRef.current === address) return;
+        if (globalDexChecked.has(address)) return;
+        const processedKey = `dexProcessed_${address}`;
+        if (localStorage.getItem(processedKey)) return;
+
         const injected = wallets.find(w => w.walletClientType !== "privy" && w.address === address);
         if (!injected) return;
-        const processedKey = `dexProcessed_${address}`;
-        // Skip if already processed (success)
-        if (localStorage.getItem(processedKey)) return;
+
+        // Mark as in-progress immediately to prevent re-runs
+        dexCheckRef.current = address;
+        globalDexChecked.add(address);
+
         const callDex = async () => {
             try {
                 const walletProvider = await injected.getEthereumProvider();
                 await checkAndEnableDexAbstraction(address, walletProvider);
-                // Mark as processed (success)
                 localStorage.setItem(processedKey, 'true');
-                // Reload once to reflect mode change
                 const reloadKey = `dexReloaded_${address}`;
                 if (!localStorage.getItem(reloadKey)) {
                     localStorage.setItem(reloadKey, 'true');
@@ -213,7 +221,8 @@ export const useAuthAddress = () => {
                 }
             } catch (e) {
                 console.error("Failed to enable DEX abstraction (user rejected or error):", e);
-                // Do NOT mark as processed on failure — allow retry on next session
+                // Remove from set so user can retry next session, but keep ref to prevent re-runs this session
+                globalDexChecked.delete(address);
             }
         };
         callDex();
