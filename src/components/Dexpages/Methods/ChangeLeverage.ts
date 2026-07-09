@@ -95,22 +95,30 @@ export const changeLeverage = async ({ payload, wallets, setLoading, createWalle
         });
 
         const result = await response.json();
+        console.log('Leverage API response:', JSON.stringify(result));
 
-        let _result = result.response.data.statuses.filter((status: any) => status.error );
-        if(_result.length > 0) {
-            toast.error(`Failed: ${_result[0].error}`);
-            throw new Error(_result[0].error);
-        } else if (result.status === "ok") {
+        if (result.status === "ok") {
+            if (typeof result.response === "string") {
+                toast.error(result.response);
+                throw new Error(result.response);
+            }
+            const statuses = result.response?.data?.statuses;
+            const errorStatus = statuses?.filter((status: any) => status.error);
+            if (errorStatus && errorStatus.length > 0) {
+                toast.error(`Failed: ${errorStatus[0].error}`);
+                throw new Error(errorStatus[0].error);
+            }
             toast.success(`Leverage set to ${leverageValue}x`);
             return result;
         } else {
-            toastinfo(result.response || "Failed to update leverage");
-            throw new Error(result.response || "Failed to update leverage");
+            const errorMsg = typeof result.response === "string" ? result.response : "Failed to update leverage";
+            toast.error(errorMsg);
+            throw new Error(errorMsg);
         }
 
     } catch (error: any) {
         console.error('Leverage Error:', error);
-        toast.error(error.message);
+        toast.error(error.message || "Failed to update leverage");
     } finally {
         setLoading(false);
     }

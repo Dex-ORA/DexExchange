@@ -113,53 +113,45 @@ export const validateFormFields = (props: validationProps) => {
         const isBuy = props.side.toLowerCase() === "buy";
 
         // ---- TP validation ----
-        if (!props.tpPrice) {
-            err.tpPrice = "TP Price is required";
+        if (!props.tpPrice && !props.tpGain) {
+            err.tpPrice = "TP Price or Gain is required";
         }
-        if (!props.tpGain) {
-            err.tpPrice = "TP Gain is required";
-        } else {
-            if (props.tpPrice) {
-                const tp = Number(props.tpPrice);
-                if (isNaN(tp) || tp <= 0) {
-                    err.tpPrice = "Enter valid TP price";
-                } else {
+        if (props.tpPrice) {
+            const tp = Number(props.tpPrice);
+            if (isNaN(tp) || tp <= 0) {
+                err.tpPrice = "Enter valid TP price";
+            } else {
+                if (isBuy && tp <= Number(props.marketData?.price || 0)) {
+                    err.tpPrice = "TP must be above entry price for BUY";
+                }
+                if (!isBuy && tp >= Number(props.marketData?.price || 0)) {
+                    err.tpPrice = "TP must be below entry price for SELL";
+                }
+            }
+        }
+        if (props.tpGain && (isNaN(Number(props.tpGain)) || Number(props.tpGain) <= 0)) {
+            err.tpGain = "Enter valid gain";
+        }
 
-                    if (isBuy && tp <= Number(props.marketData?.price || 0)) {
-                        err.tpPrice = "TP must be above entry price for BUY";
-                    }
-                    if (!isBuy && tp >= Number(props.marketData?.price || 0)) {
-                        err.tpPrice = "TP must be below entry price for SELL";
-                    }
-                }
-            }
-            if (props.tpGain && (isNaN(Number(props.tpGain)) || Number(props.tpGain) <= 0)) {
-                err.tpGain = "Enter valid gain";
-            }
-        }
         // ---- SL validation ----
-        if (!props.slPrice) {
-            err.slPrice = "SL Price is required";
+        if (!props.slPrice && !props.slLoss) {
+            err.slPrice = "SL Price or Loss is required";
         }
-        if (!props.slLoss) {
-            err.slPrice = "SL Loss is required";
-        } else {
-            if (props.slPrice) {
-                const sl = Number(props.slPrice);
-                if (isNaN(sl) || sl <= 0) {
-                    err.slPrice = "Enter valid SL price";
-                } else {
-                    if (isBuy && sl >= Number(props.marketData?.price || 0)) {
-                        err.slPrice = "SL must be below entry price for BUY";
-                    }
-                    if (!isBuy && sl <= Number(props.marketData?.price || 0)) {
-                        err.slPrice = "SL must be above entry price for SELL";
-                    }
+        if (props.slPrice) {
+            const sl = Number(props.slPrice);
+            if (isNaN(sl) || sl <= 0) {
+                err.slPrice = "Enter valid SL price";
+            } else {
+                if (isBuy && sl >= Number(props.marketData?.price || 0)) {
+                    err.slPrice = "SL must be below entry price for BUY";
+                }
+                if (!isBuy && sl <= Number(props.marketData?.price || 0)) {
+                    err.slPrice = "SL must be above entry price for SELL";
                 }
             }
-            if (props.slLoss && (isNaN(Number(props.slLoss)) || Number(props.slLoss) <= 0)) {
-                err.slLoss = "Enter valid loss";
-            }
+        }
+        if (props.slLoss && (isNaN(Number(props.slLoss)) || Number(props.slLoss) <= 0)) {
+            err.slLoss = "Enter valid loss";
         }
     }
     return err;

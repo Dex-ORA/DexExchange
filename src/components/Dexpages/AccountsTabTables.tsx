@@ -252,15 +252,17 @@ export const TradeNoData = ({ data }: { data: any[] }) => {
     return (
         <>
             {data.length == 0 &&
-                <tr className="absolute inset-0 pointer-events-none">
-                    <td className="p-0">
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white/60">
-                            <RiFileCloseLine className="text-4xl mb-2" />
-                            <span>No Data</span>
-                        </div>
-                    </td>
-                </tr>}
-            {!data && <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Loading...</div>}
+                <tbody>
+                    <tr>
+                        <td colSpan={100} className="p-0">
+                            <div className="flex flex-col items-center justify-center text-white/60 py-12">
+                                <RiFileCloseLine className="text-4xl mb-2" />
+                                <span>No Data</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>}
+            {!data && <tbody><tr><td colSpan={100} className="text-center py-12">Loading...</td></tr></tbody>}
 
         </>
     )

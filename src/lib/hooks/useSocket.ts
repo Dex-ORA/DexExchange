@@ -381,6 +381,7 @@ export const useHyperliquidSocket = (resolvedMarket: string, resolveAddress: str
     setMarketData,
     leverage,
     setLeverage, dataRef, withdrawable,
-    tradeMode, setTradeMode, setUserOrders, userPositions, perpsEquity, accountValue, unrealizedPnl, crossMarginRatio, maintenanceMargin, crossAccountLeverage, userTrades
+    tradeMode, setTradeMode, setUserOrders, userPositions, perpsEquity, accountValue, unrealizedPnl, crossMarginRatio, maintenanceMargin, crossAccountLeverage, userTrades,
+    setUserbalances, setAccountValue, setPerpsEquity, setWithdrawable
   };
 };

@@ -34,7 +34,7 @@ export const AccountSummaryCard = ({ props, userPositions, spotMode }: { props: 
   const [openWithdraw, setWithdraw] = useState<boolean>(false);
 
   const isUnified = props.accountType === "unifiedAccount" || props.accountType === "portfolioMargin";
-  const tabs: TabType[] = isUnified ? ["deposit", "withdraw"] : ["deposit", "withdraw", "transfer"];
+  const tabs: TabType[] = ["deposit", "withdraw", "transfer"];
 
   return (
     <div className=" text-white p-4 space-y-5 border border-[#232332] h-134">
@@ -63,7 +63,7 @@ export const AccountSummaryCard = ({ props, userPositions, spotMode }: { props: 
       </div>
       <DepositPopupForm depositPopup={open} setDepositPopup={setOpen} />
       <WithdrawPopupForm withdrawPopup={openWithdraw} setWithdrawPopup={setWithdraw} withdraw={props.withdraw} perpsEquity={props.withdrawable} />
-      <TransferModal spotMode={spotMode} setTransferPopup={props.setTransferPopup} transferPopup={props.transferPopup} transferFunds={props.transferFunds} perpsEquity={getNumberTransformed(props.accountValue - userPositions?.map((p) => p?.position?.marginUsed).reduce((a, b) => Number(a) + Number(b), 0))} spotEquity={getNumberTransformed(props.usdcSpot)} />
+      <TransferModal spotMode={spotMode} setTransferPopup={props.setTransferPopup} transferPopup={props.transferPopup} transferFunds={props.transferFunds} perpsEquity={getNumberTransformed(props.withdrawable)} spotEquity={getNumberTransformed(props.usdcSpot)} />
       {/* Account Equity */}
       <div className="space-y-2">
         <div className="font-semibold">Account Equity</div>

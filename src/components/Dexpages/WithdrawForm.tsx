@@ -63,7 +63,7 @@ export default function WithdrawPopupForm({ withdrawPopup, setWithdrawPopup, wit
         // Amount must be a positive number
         if (!amount) newErrors.amount = "Enter amount";
         else if (isNaN(Number(amount))) newErrors.amount = "Invalid number";
-        else if (Number(amount) > Number(avlBalace)) newErrors.amount = "Insuffienct Balance";
+        else if (Number(amount) > Number(avlBalace)) newErrors.amount = "Insufficient Balance";
         else if (Number(amount) <= 0) newErrors.amount = "Amount must be > 0";
         else if (Number(amount) < 2) newErrors.amount = "Minimum withdraw is 2 USDC";
 

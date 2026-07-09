@@ -112,7 +112,8 @@ export const useTradingEngine = () => {
     const options = [selectedCoin, selectedToCoin ?? "USDC"];
     const {
         mids, userOrders, orderHistory, twapStates, userTwapHistory, userTwapSliceFills, withdrawable,
-        orderbook, trades, marketData, userFunding, setMarketData, leverage, setLeverage, tradeMode, setTradeMode, userbalances, userPositions, perpsEquity, accountValue, unrealizedPnl, crossMarginRatio, maintenanceMargin, crossAccountLeverage, userTrades
+        orderbook, trades, marketData, userFunding, setMarketData, leverage, setLeverage, tradeMode, setTradeMode, userbalances, userPositions, perpsEquity, accountValue, unrealizedPnl, crossMarginRatio, maintenanceMargin, crossAccountLeverage, userTrades,
+        setUserbalances, setAccountValue, setPerpsEquity, setWithdrawable
     } = useHyperliquidSocket(pairmappingid ? pairmappingid : market ?? "", address as string);
     const marketPriceRef = useRef(marketData);
 
@@ -127,8 +128,34 @@ export const useTradingEngine = () => {
             setLoading(false)
     }, [isConfirm, transferPopup])
 
+    const refreshBalances = async () => {
+        if (!address) return;
+        try {
+            const res = await fetch(infoUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type: "spotClearinghouseState", user: address }),
+            });
+            const data = await res.json();
+            if (data?.balances) setUserbalances(data.balances);
+
+            const perpRes = await fetch(infoUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ type: "clearinghouseState", user: address }),
+            });
+            const perpData = await perpRes.json();
+            if (perpData?.marginSummary) {
+                setAccountValue(parseFloat(perpData.marginSummary.accountValue) || 0);
+                setPerpsEquity(parseFloat(perpData.marginSummary.accountValue) || 0);
+                setWithdrawable(parseFloat(perpData.withdrawable) || 0);
+            }
+        } catch (err) {
+            console.error("refreshBalances error:", err);
+        }
+    };
+
     const withReload = async (fn: () => Promise<void>) => {
-        //sharath
         setLoading(true);
         try {
             await fn();
@@ -193,10 +220,12 @@ export const useTradingEngine = () => {
             }));
     };
     const transferFunds = async (payload: any) => {
-        withReload(() =>
-            handleTransfer({
+        withReload(async () => {
+            await handleTransfer({
                 payload: { ...payload, accountType }, user, setLoading, setTransferPopup
-            }));
+            });
+            setTimeout(refreshBalances, 1500);
+        });
     };
     const cancelOrder = async ({ coinName, orderId }: { coinName: string, orderId: number }) => {
         withReload(() =>

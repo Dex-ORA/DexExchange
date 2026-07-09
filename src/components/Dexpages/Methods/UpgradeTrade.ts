@@ -23,6 +23,7 @@ export const updateTradeMode = async ({
         toast.error("Agent wallet not found.");
         throw new Error("No active Privy wallet instance.");
     }
+    let toasted = false;
     try {
         setLoading(true);
         const eip1193Provider = await privyWallet.getEthereumProvider();
@@ -89,21 +90,34 @@ export const updateTradeMode = async ({
             body: JSON.stringify(payload),
         });
         const result = await response.json();
-        let _result = result.response.data.statuses.filter((status: any) => status.error );
-        if(_result.length > 0) {
-            toast.error(`Failed: ${_result[0].error}`);
-            throw new Error(_result[0].error);
-        } else if (result.status === "ok") {
+        console.log('Margin mode API response:', JSON.stringify(result));
+        if (result.status === "ok") {
+            // Check if response is a string error (e.g. "Cannot switch leverage type with open position.")
+            if (typeof result.response === "string") {
+                toasted = true;
+                toast.error(result.response);
+                throw new Error(result.response);
+            }
+            const statuses = result.response?.data?.statuses;
+            const errorStatus = statuses?.filter((status: any) => status.error);
+            if (errorStatus && errorStatus.length > 0) {
+                toasted = true;
+                toast.error(`Failed: ${errorStatus[0].error}`);
+                throw new Error(errorStatus[0].error);
+            }
             toast.success(`Successfully switched to ${mode} margin!`);
             return result;
         } else {
-            const errorMsg = result.response?.data?.statuses?.[0]?.error || "Mode update failed";
-            toastinfo(errorMsg);
+            const errorMsg = typeof result.response === "string" ? result.response : "Mode update failed";
+            toasted = true;
+            toast.error(errorMsg);
             throw new Error(errorMsg);
         }
     } catch (error: any) {
         console.error('Failed to update trade mode:', error);
-        toast.error(`Margin Mode Error: ${error.message}`);
+        if (!toasted) {
+            toast.error(error.message || "Failed to update margin mode");
+        }
     } finally {
         setLoading(false);
     }

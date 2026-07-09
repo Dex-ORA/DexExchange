@@ -97,7 +97,7 @@ export const handleCancelAllOrders = async ({ wallets, setLoading }: any) => {
         });
         const result = await response.json();
         
-        let _result = result.response.data.statuses.filter((status: any) => status.error );
+        let _result = (result?.response?.data?.statuses || []).filter((status: any) => status.error );
         if(_result.length > 0) {
             toast.error(`Failed: ${_result[0].error}`);
             throw new Error(_result[0].error);

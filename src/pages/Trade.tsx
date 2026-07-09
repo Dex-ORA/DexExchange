@@ -43,7 +43,7 @@ export default function Trade() {
 
     const description = `Trade ${trading.market} ${trading.vendor} ${mode} on Dexora with real-time charts, deep liquidity, and low fees.`;
 
-    const url = `https://abc-dex.vercel.app/trade/${trading.market}/${trading.vendor}`;
+    const url = `https://dexora.live/trade/${trading.market}/${trading.vendor}`;
     return (
         <>
             {title && <SEO

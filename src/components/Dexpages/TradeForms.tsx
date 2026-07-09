@@ -350,7 +350,7 @@ export default function TradingForm({
 
         const base: any = {
             side,
-            size: inputCurrency == toCurrency ? Number(size) / conversionPrice : size,
+            size: inputCurrency == toCurrency ? (conversionPrice && conversionPrice > 0 ? Number(size) / conversionPrice : 0) : size,
             market: selectedCoin,
             mode: tradeMode,
             leverage: Number(leverage),
@@ -897,9 +897,9 @@ export default function TradingForm({
                     {address ? (
                         <button disabled={isLoading || isTradePosition <= 0}
                             onClick={handleSubmit}
-                            className={`w-full py-2 rounded-md text-sm text-center ${side === "Buy" ? "bg-[#2BC287]" : "bg-[#F74B60]"} text-black`}
+                            className={`w-full py-2 rounded-md text-sm text-center ${side === "Buy" ? "bg-[#2BC287]" : "bg-[#F74B60]"} text-black disabled:opacity-50 disabled:cursor-not-allowed`}
                         >
-                            {isLoading ? 'Loading...' : (isTradePosition > 0 ? 'Place Order' : 'No Balance to trade')}
+                            {isLoading ? 'Loading...' : (isTradePosition > 0 ? 'Place Order' : 'Insufficient Balance — Deposit or Transfer Funds')}
                         </button>
                     ) : (
                         <button

@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { ethers } from "ethers";
 import Modal from "../../lib/Modal";
+import toast from "react-hot-toast";
 import { copyToClipboard, getNumberTransformed, toastinfo } from "../../utils";
 import { BiCopy } from "react-icons/bi";
 import { usePrivy, useWallets } from "@privy-io/react-auth";
@@ -317,8 +318,9 @@ export default function DepositPopupForm({ depositPopup, setDepositPopup }: Depo
             const depositTx = await usdcContract.transfer(BRIDGE_ADDRESS_MAINNET, amountBN.toString());
             toastinfo('Deposit transaction sent! Your USDC will appear shortly.');
             setDepositPopup(false);
-            
+
             await depositTx.wait();
+            toast.success('Deposit confirmed on-chain!');
             return depositTx;
         } catch (error) {
             console.error('Deposit failed:', error);

@@ -42,7 +42,7 @@ const ConfirmationTxnPopup = ({ spotMode, isOpen, onConfirm, onCancel, payload, 
             onClose={() => onCancel()}
             title=""
             width="max-w-[400px]"
-            zIndex="z-999"
+            zIndex="z-[9999]"
         >
             {payload &&
                 <div className="space-y-4">
@@ -134,7 +134,7 @@ const ConfirmationTxnPopup = ({ spotMode, isOpen, onConfirm, onCancel, payload, 
                     <div className="flex gap-3">
                         <button
                             onClick={handleConfirm} disabled={isLoading}
-                            className={`flex-1 rounded-lg py-2 text-sm font-medium ${payload.side.toLowerCase() === "buy"
+                            className={`flex-1 rounded-lg py-2 text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed ${payload.side.toLowerCase() === "buy"
                                 ? "bg-[#2BC287]"
                                 : "bg-[#F74B60]"
                                 }`}

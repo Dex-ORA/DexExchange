@@ -39,6 +39,12 @@ export const handlePlaceSpotLongOrder = async ({
         return;
     }
     if ((payload.orderType == "takemarket") || (payload.orderType == "stopmarket")) {
+        if (!payload?.triggerPrice || Number(payload.triggerPrice) <= 0) {
+            toast.error('Trigger price is required for stop/take orders.');
+            setLoading(false);
+            setIsConfirm(false);
+            return;
+        }
         price = roundPriceToTickSize(payload?.triggerPrice * 1.04);
     } else if (!price) {
         price = side ?
@@ -80,7 +86,7 @@ export const handlePlaceSpotLongOrder = async ({
         const cloid = `0x${cloidHex}`;
         let orders = []
         if (payload.orderType == "tpsledit") {
-            if (payload.tp) {
+            if (payload.tp && payload.tp.price && Number(payload.tp.price) > 0) {
                 orders.push({
                     a: Number(assetIndex),
                     b: side, // true = long/buy, false = short/sell
@@ -96,7 +102,7 @@ export const handlePlaceSpotLongOrder = async ({
                     }
                 });
             }
-            if (payload.sl) {
+            if (payload.sl && payload.sl.price && Number(payload.sl.price) > 0) {
                 orders.push({
                     a: Number(assetIndex),
                     b: side, // true = long/buy, false = short/sell
@@ -173,7 +179,7 @@ export const handlePlaceSpotLongOrder = async ({
                 },
                 c: cloid
             });
-            if (payload.tp) {
+            if (payload.tp && payload.tp.price && Number(payload.tp.price) > 0) {
                 orders.push({
                     a: Number(assetIndex),
                     b: !side, // true = long/buy, false = short/sell
@@ -189,7 +195,7 @@ export const handlePlaceSpotLongOrder = async ({
                     }
                 });
             }
-            if (payload.sl) {
+            if (payload.sl && payload.sl.price && Number(payload.sl.price) > 0) {
                 orders.push({
                     a: Number(assetIndex),
                     b: !side, // true = long/buy, false = short/sell

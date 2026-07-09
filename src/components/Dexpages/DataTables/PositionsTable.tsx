@@ -55,7 +55,7 @@ export const PositionsTable = ({
         <>
             <TableWrapper>
                 <thead>
-                    <tr className="sticky top-0">
+                    <tr className="sticky top-0 z-10">
                         <th className="px-4 py-3 bg-black">Coin</th>
                         <th className="px-4 py-3 bg-black">Size</th>
                         <th className="px-4 py-3 bg-black">Position value</th>
