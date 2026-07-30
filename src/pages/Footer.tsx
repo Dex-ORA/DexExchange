@@ -13,8 +13,8 @@ const footerLinks: Record<string, { label: string; href: string; external?: bool
     'Dexora Ecosystem': [
         { label: 'Dexorbit', href: 'https://www.dexora.exchange/dashboard', external: true },
         { label: 'Dexora Exchange', href: '/trade/BTC' },
-        { label: 'Dexora DEX', href: 'https://dex.dexora.live/', external: true },
-        { label: 'Cross-Chain Bridge', href: 'https://dex.dexora.live/bridge', external: true },
+        { label: 'Dexora DEX', href: 'https://dex.dexora.exchange/', external: true },
+        { label: 'Cross-Chain Bridge', href: 'https://dex.dexora.exchange/bridge', external: true },
     ],
     'Others': [
         { label: 'Staking', href: '/staking' },

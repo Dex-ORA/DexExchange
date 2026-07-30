@@ -10,8 +10,8 @@ import { formatWalletAddress } from "../utils";
 const navLinks = [
     { name: "Trade", path: "/trade/BTC", status: "live" },
    { name: "Portfolio", path: "/portfolio", status: "live" },
-    { name: "DEX", path: "https://dex.dexora.live/", status: "live", external: true },
-    // { name: "Bridge", path: "https://dex.dexora.live/bridge", status: "live", external: true },
+    { name: "DEX", path: "https://dex.dexora.exchange/", status: "live", external: true },
+    // { name: "Bridge", path: "https://dex.dexora.exchange/bridge", status: "live", external: true },
  { name: "About", path: "/about", status: "live" },
     { name: "FAQ", path: "/faq", status: "live" },
     
